@@ -7,3 +7,6 @@ flamegraph.svg
 /.vscode
 profile.coz
 /graphs
+/result
+.#*
+.direnv
