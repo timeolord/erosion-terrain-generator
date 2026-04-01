@@ -1,5 +1,5 @@
 {
-  description = "music-generator";
+  description = "city-builder";
   inputs = {
     rust-overlay.url = "github:oxalica/rust-overlay";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -21,31 +21,42 @@
       with pkgs;
       {
         devShells.default = mkShell {
-          # strictDeps = true;
           buildInputs = [
             alsa-lib.dev
-            # alsa-lib
             libllvm
             rust-bin.stable.latest.default
-            # clang
             llvmPackages.libcxxClang
             llvmPackages.bintools-unwrapped
             systemdLibs
             systemd
+            # graphics deps for bevy
+            xorg.libX11
+            xorg.libXcursor
+            xorg.libXi
+            xorg.libXrandr
+            libxkbcommon
+            vulkan-loader
+            wayland
+            udev
           ];
           packages = [
-            # cargo
-            # rustc
-            # rustPlatform.bindgenHook
             rust-analyzer
             rustfmt
             pkg-config
             systemdLibs
             systemd
-            # libclang
-            # llvm.lld
-            # llvm.clang-tools
-            # llvmPackages.bintools
+          ];
+          LD_LIBRARY_PATH = lib.makeLibraryPath [
+            systemdLibs
+            alsa-lib
+            xorg.libX11
+            xorg.libXcursor
+            xorg.libXi
+            xorg.libXrandr
+            libxkbcommon
+            vulkan-loader
+            wayland
+            udev
           ];
         };
       }

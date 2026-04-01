@@ -26,9 +26,9 @@ impl ComputeWorker for BlurComputeWorker {
 
     fn build(app: &mut App) -> AppComputeWorker<Self> {
         let worker = AppComputeWorkerBuilder::new(app)
-            .add_empty_staging(Self::Fields::Image, 0)
-            .add_empty_storage(Self::Fields::ImageSize, 0)
-            .add_empty_storage(Self::Fields::BlurSize, 0)
+            .add_staging(Self::Fields::Image, &[0.0f32])
+            .add_storage(Self::Fields::ImageSize, &[1u32, 1u32])
+            .add_storage(Self::Fields::BlurSize, &[1u32, 1u32])
             .add_pass::<BlurShader>(
                 [1, 1, 1],
                 &[

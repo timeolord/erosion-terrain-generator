@@ -111,7 +111,7 @@ features = [
   #"shader_format_spirv", # SPIR-V shader support
 
   # Platform-specific:
-  #"wayland",              # (Linux) Support Wayland windowing system
+  "wayland",              # (Linux) Support Wayland windowing system
   #"accesskit_unix",       # (Unix-like) AccessKit integration for UI Accessibility
   #"bevy_dynamic_plugin",  # (Desktop) support for loading of `DynamicPlugin`s
 
