@@ -1,10 +1,10 @@
-# City Builder
+# Erosion Terrain Generator
 
-A procedural terrain generation and visualization system built with Rust and Bevy, featuring GPU-accelerated erosion simulation and level-of-detail rendering.
+A procedural terrain generation and visualization system built with Rust and Bevy, featuring GPU-accelerated hydraulic erosion simulation and level-of-detail rendering.
 
 ## Overview
 
-City Builder is an early-stage project focused on procedural world generation and terrain manipulation. It combines Perlin noise-based terrain generation with GPU-accelerated hydraulic erosion to create realistic landscapes with valleys and natural-looking features. The engine uses Bevy 0.13 for rendering and handles rendering optimization through dynamic level-of-detail systems.
+Erosion Terrain Generator is a focused project for procedural terrain creation and realistic erosion simulation. It combines Perlin noise-based terrain generation with GPU-accelerated hydraulic erosion to create natural-looking landscapes with valleys and realistic weathering patterns. The system uses Bevy 0.13 for rendering and handles rendering optimization through dynamic level-of-detail systems.
 
 ## Features
 
@@ -34,11 +34,11 @@ Water simulation includes a global water level that can be adjusted (0-150 units
 
 Camera System
 
-An orbit camera with custom input handling allows exploration of the generated world. Keyboard controls (WASD) navigate the terrain, middle mouse button orbits the camera, and mouse wheel zooms. The camera automatically maintains terrain clearance and world boundaries.
+An orbit camera with custom input handling allows exploration of the generated terrain. Keyboard controls (WASD) navigate the world, middle mouse button orbits the camera, and mouse wheel zooms. The camera automatically maintains terrain clearance and world boundaries.
 
 Save and Load System
 
-Generated worlds can be saved to disk as RON files containing heightmap data and world generation settings. Loading previously saved worlds preserves all terrain generation parameters, allowing iteration on specific seeds and settings.
+Generated terrains can be saved to disk as RON files containing heightmap data and world generation settings. Loading previously saved terrains preserves all generation parameters, allowing iteration on specific seeds and settings.
 
 ## Architecture
 
@@ -52,7 +52,7 @@ camera - Orbit camera controller and raycasting systems
 
 assets - Asset loading pipeline and texture atlas generation for terrain materials
 
-menu - Main menu interface for starting new games or loading saves
+menu - Main menu interface for starting new terrains or loading saves
 
 save - Save file serialization and loading logic
 
@@ -66,7 +66,7 @@ The application uses a state machine with four main states: AssetLoading, MainMe
 
 The terrain uses a customizable noise system combining Fbm (fractional Brownian motion) for base terrain with RidgedMulti noise for mountain peaks. A circle-based mask system controls mountain distribution by placing Gaussian circles across the world. Parameters include:
 
-- Seed: Reproducible world generation
+- Seed: Reproducible terrain generation
 - Hilliness: 0.0-1.0 blend between flat and hilly terrain
 - Mountain Amount: Number of mountain centers (0-10)
 - Mountain Size: Radius of mountain clusters (50-200 units)
@@ -108,10 +108,6 @@ cargo run
 ```
 
 The dev profile enables optimization level 3 for reasonable compile times with faster execution.
-
-## Development Status
-
-This project is in active development. Key implemented features include procedural terrain generation, GPU erosion, LOD rendering, and save/load functionality. Planned features include tree placement and water mesh generation. The codebase uses diagnostic tools for performance measurement and has performance profiling support on Unix platforms.
 
 ## License
 
