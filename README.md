@@ -108,7 +108,3 @@ cargo run
 ```
 
 The dev profile enables optimization level 3 for reasonable compile times with faster execution.
-
-## License
-
-This project does not currently specify a license.
