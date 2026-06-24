@@ -1,5 +1,5 @@
 # Erosion Terrain Generator
-![gif of the terrain generator](./images/city-builder.gif)
+![gif of the terrain generator](./images/city-builder.gif)<br>
 A procedural terrain generation and visualization system built with Rust and Bevy, featuring GPU-accelerated hydraulic erosion simulation and level-of-detail rendering.
 
 ## Overview
